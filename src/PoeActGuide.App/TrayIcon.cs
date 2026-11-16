@@ -91,11 +91,21 @@ internal sealed class TrayIcon : IDisposable
         _icon = new NotifyIcon
         {
             Icon = _image,
-            Text = "PoE 액트 가이드",
+            Text = $"PoE 액트 가이드 {AppVersion}",
             ContextMenuStrip = menu,
             Visible = true,
         };
         _icon.DoubleClick += (_, _) => commands.ToggleVisible();
+    }
+
+    /// <summary>"v1.2.3" from the assembly version the release workflow stamps; "개발 빌드" otherwise.</summary>
+    private static string AppVersion
+    {
+        get
+        {
+            var v = typeof(TrayIcon).Assembly.GetName().Version;
+            return v is null || (v.Major == 0 && v.Minor == 0 && v.Build == 0) ? "(개발 빌드)" : $"v{v.Major}.{v.Minor}.{v.Build}";
+        }
     }
 
     public void ShowBalloon(string text) =>

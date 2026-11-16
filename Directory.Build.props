@@ -6,5 +6,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <!-- Lets the WPF project compile on Linux/macOS (CI, cloud sessions). It still only runs on Windows. -->
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!-- Local builds are 0.0.0 ("개발 빌드"); the release workflow passes -p:Version=X.Y.Z from the PR title. -->
+    <Version>0.0.0</Version>
   </PropertyGroup>
 </Project>

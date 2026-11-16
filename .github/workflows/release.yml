@@ -1,0 +1,79 @@
+name: Release
+
+# main 으로 PR 이 머지되면: PR 제목으로 다음 버전을 정하고, 빌드·테스트 후
+# 실행 파일 zip 을 GitHub Release 로 게시한다 (태그 vX.Y.Z 도 이때 만들어진다).
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      TITLE: ${{ github.event.pull_request.title }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
+
+      - name: 다음 버전 계산
+        id: version
+        run: |
+          current="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1)"
+          current="${current:-v0.0.0}"
+          next="$(bash .github/scripts/version.sh next "$TITLE" "$current")"
+          echo "현재 ${current} → 다음 v${next}"
+          echo "version=${next}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: 테스트
+        run: dotnet test -c Release
+
+      - name: 게시 (self-contained, 단일 exe)
+        run: |
+          dotnet publish src/PoeActGuide.App -c Release -r win-x64 --self-contained true \
+            -p:PublishSingleFile=true \
+            -p:IncludeNativeLibrariesForSelfExtract=true \
+            -p:EnableCompressionInSingleFile=true \
+            -p:DebugType=none \
+            -p:Version=${{ steps.version.outputs.version }} \
+            -o publish
+
+      - name: zip 만들기
+        id: zip
+        shell: pwsh
+        run: |
+          $name = "PoeActGuide-v${{ steps.version.outputs.version }}-win-x64.zip"
+          Compress-Archive -Path publish/* -DestinationPath $name
+          "file=$name" >> $env:GITHUB_OUTPUT
+
+      - name: 릴리즈 게시
+        run: |
+          tag="v${{ steps.version.outputs.version }}"
+          notes="$(printf '%s (#%s)\n\n%s\n\n### 설치\n`%s` 를 받아 압축을 풀고 `PoeActGuide.exe` 를 실행하세요. .NET 런타임 설치는 필요 없습니다.' \
+            "$TITLE" "$PR_NUMBER" "$PR_URL" "${{ steps.zip.outputs.file }}")"
+          gh release create "$tag" "${{ steps.zip.outputs.file }}" \
+            --target "$MERGE_SHA" \
+            --title "$tag" \
+            --notes "$notes" \
+            --generate-notes

@@ -105,6 +105,52 @@ dotnet publish src/PoeActGuide.App -c Release -r win-x64 --self-contained false 
 
 `publish\PoeActGuide.exe`를 실행하면 된다. 가이드 데이터는 exe 옆 `Data\` 폴더에 복사되므로 다시 빌드하지 않고 고쳐 쓸 수 있다.
 
+## 릴리즈
+
+빌드할 필요 없이 [Releases](../../releases)에서 `PoeActGuide-vX.Y.Z-win-x64.zip` 을 받아 압축을 풀고 `PoeActGuide.exe` 를 실행하면 된다. .NET 런타임이 들어 있는 단일 exe(+ `Data\` 폴더)라 따로 설치할 것이 없다. 실행 중인 버전은 트레이 아이콘에 마우스를 올리면 보인다.
+
+릴리즈는 GitHub Actions가 자동으로 만든다.
+
+| 워크플로 | 언제 | 하는 일 |
+|---|---|---|
+| `CI` (`.github/workflows/ci.yml`) | `main` 으로 가는 PR 을 열거나 고칠 때 | **PR 제목 검사**, 빌드·테스트 |
+| `Release` (`.github/workflows/release.yml`) | PR 이 `main` 에 **머지**될 때 | PR 제목으로 다음 버전 계산 → 테스트 → 단일 exe 게시 → zip 을 GitHub Release 로 게시 (태그 `vX.Y.Z` 생성) |
+
+- 버전은 마지막 `vX.Y.Z` 태그에서 올린다. 태그가 없으면 `v0.0.0` 에서 시작한다.
+- `main` 에 직접 푸시한 커밋은 릴리즈되지 않는다. 항상 PR 로 머지한다.
+- 제목이 틀린 PR 이 머지되는 것을 막으려면 저장소 설정 → Branches → `main` 보호 규칙에서 **`PR 제목 검사`** 와 **`빌드 · 테스트`** 를 필수 상태 검사로 지정한다.
+
+### PR 제목 규칙
+
+PR 제목이 곧 버전 증가 종류와 릴리즈 노트 첫 줄이 된다. 형식은 [Conventional Commits](https://www.conventionalcommits.org/ko/) 를 따른다.
+
+```
+<종류>[(범위)][!]: <설명>
+```
+
+| 제목 | 버전 | 쓰는 경우 |
+|---|---|---|
+| `major: ...` 또는 종류 뒤에 `!` (예: `feat!: ...`) | **메이저** (1.4.2 → 2.0.0) | 이전 설정·데이터와 호환되지 않는 변경 |
+| `feat: ...` | **마이너** (1.4.2 → 1.5.0) | 새 기능, 가이드에 새 내용 추가 |
+| `fix:` `perf:` `refactor:` `data:` `docs:` `chore:` `ci:` `build:` `test:` `style:` | **패치** (1.4.2 → 1.4.3) | 버그 수정, 가이드 문구·지역 수정, 문서, 빌드 설정 등 |
+
+- 종류는 영어 소문자, 콜론 뒤에 공백 한 칸, 설명은 한국어로 써도 된다.
+- 범위는 선택이다. 가이드 수정이면 장 번호를 쓰면 찾기 쉽다.
+
+예시:
+
+```
+feat: 다음 단계 단축키 추가                  → 마이너
+feat(오버레이): 액트 전체 보기 추가           → 마이너
+data(3장): 도서관 단계의 진입 지역 수정       → 패치
+fix: 마을에서 단계가 건너뛰어지는 문제 수정    → 패치
+docs: PR 제목 규칙 추가                       → 패치
+feat!: 설정 파일 형식 변경                    → 메이저
+major: 3.31 루트로 전면 교체                  → 메이저
+```
+
+규칙에 맞지 않는 예: `가이드 수정`(종류 없음), `Feat: ...`(대문자), `feat:설명`(공백 없음), `update: ...`(모르는 종류).
+
 ## 구조
 
 ```
@@ -119,6 +165,8 @@ src/PoeActGuide.Core/       플랫폼 무관 로직 (net8.0)
 src/PoeActGuide.App/        WPF 오버레이 · 전역 단축키 · 트레이 아이콘 (net8.0-windows)
 tests/PoeActGuide.Core.Tests/   xUnit
 tools/build_areas.py        지역 표 생성기
+.github/workflows/          CI (PR 제목 검사·빌드·테스트), Release (머지 시 버전 올리고 게시)
+.github/scripts/version.sh  PR 제목 → 버전 증가 종류·다음 버전 계산
 ```
 
 가이드 내용을 고치거나 늘리는 방법은 [`docs/DATA.md`](docs/DATA.md)를 본다.

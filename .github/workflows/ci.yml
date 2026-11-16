@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  pr-title:
+    name: PR 제목 검사
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 제목으로 버전 증가 종류 확인
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          bump="$(bash .github/scripts/version.sh bump "$TITLE")"
+          echo "머지되면 **${bump}** 버전이 올라갑니다: \`${TITLE}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "bump=${bump}"
+
+  build:
+    name: 빌드 · 테스트
+    # 제목만 고친 경우(edited)에는 다시 빌드하지 않는다.
+    if: github.event.action != 'edited'
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet build -c Release
+      - run: dotnet test -c Release --no-build
