@@ -15,7 +15,7 @@ public sealed class GuideDataException : Exception
     }
 }
 
-/// <summary>Reads <c>guide.ko.json</c> and <c>areas.ko.json</c>.</summary>
+/// <summary>Reads <c>guide.ko.json</c> (route steps per act) and <c>areas.ko.json</c>.</summary>
 public static class GuideLoader
 {
     /// <summary>File name of the goal list.</summary>
@@ -51,7 +51,7 @@ public static class GuideLoader
 
         var acts = (guide.Acts ?? new List<ActFileEntry>())
             .OrderBy(a => a.Act)
-            .Select(a => new ActGuide(a.Act, (a.Goals ?? new List<GoalFileEntry>()).Select(ToGoal).ToList()))
+            .Select(a => new ActGuide(a.Act, (a.Steps ?? new List<StepFileEntry>()).Select(ToStep).ToList()))
             .ToList();
 
         var areaTable = areas.ToDictionary(
@@ -62,8 +62,8 @@ public static class GuideLoader
         return new GuideData(acts, areaTable);
     }
 
-    private static Goal ToGoal(GoalFileEntry g) =>
-        new(g.Id ?? string.Empty, g.Kind, g.Areas ?? new List<string>(), g.Text ?? string.Empty, g.Note, g.Key);
+    private static RouteStep ToStep(StepFileEntry s) =>
+        new(s.Kind, s.Areas ?? new List<string>(), s.Text ?? string.Empty, s.Note, s.Key);
 
     private static T Read<T>(string path)
         where T : class
@@ -98,14 +98,12 @@ public static class GuideLoader
     {
         public int Act { get; set; }
 
-        public List<GoalFileEntry>? Goals { get; set; }
+        public List<StepFileEntry>? Steps { get; set; }
     }
 
-    private sealed class GoalFileEntry
+    private sealed class StepFileEntry
     {
-        public string? Id { get; set; }
-
-        public GoalKind Kind { get; set; }
+        public StepKind Kind { get; set; }
 
         public List<string>? Areas { get; set; }
 

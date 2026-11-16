@@ -30,7 +30,7 @@ public partial class App : Application, ITrayCommands
 
     public bool IsOverlayVisible => _window?.IsVisible ?? false;
 
-    public bool IsCompact => _settings.Compact;
+    public ViewMode ViewMode => _settings.ViewMode;
 
     public bool IsMoveMode => _viewModel.IsMoveMode;
 
@@ -133,12 +133,19 @@ public partial class App : Application, ITrayCommands
         }
     }
 
-    public void ToggleCompact()
+    public void SetViewMode(ViewMode mode)
     {
-        _settings.Compact = !_settings.Compact;
+        _settings.ViewMode = mode;
         _settingsStore?.TrySave(_settings);
         Refresh();
     }
+
+    public void CycleViewMode() => SetViewMode(_settings.ViewMode switch
+    {
+        ViewMode.Normal => ViewMode.Compact,
+        ViewMode.Compact => ViewMode.Full,
+        _ => ViewMode.Normal,
+    });
 
     public void ToggleMoveMode()
     {
@@ -160,6 +167,10 @@ public partial class App : Application, ITrayCommands
     public void NextAct() => _tracker?.ShowNextAct();
 
     public void BackToDetectedAct() => _tracker?.ClearManualAct();
+
+    public void NextStep() => _tracker?.NextStep();
+
+    public void PreviousStep() => _tracker?.PreviousStep();
 
     public void ChooseLogFile()
     {
@@ -219,7 +230,9 @@ public partial class App : Application, ITrayCommands
                 _hotkeys.Register(keys.ToggleVisible, ToggleVisible),
                 _hotkeys.Register(keys.PreviousAct, PreviousAct),
                 _hotkeys.Register(keys.NextAct, NextAct),
-                _hotkeys.Register(keys.ToggleCompact, ToggleCompact),
+                _hotkeys.Register(keys.NextStep, NextStep),
+                _hotkeys.Register(keys.PreviousStep, PreviousStep),
+                _hotkeys.Register(keys.CycleViewMode, CycleViewMode),
                 _hotkeys.Register(keys.ToggleMoveMode, ToggleMoveMode),
             }
             .Where(p => p is not null)
@@ -245,9 +258,10 @@ public partial class App : Application, ITrayCommands
         _locateTimer?.Stop();
         _viewModel.Status = null;
 
-        if (ClientLogParser.FindLastAreaEntered(path) is { } last)
+        // Replaying the recent log rebuilds the route position, not just the act.
+        foreach (var entered in ClientLogParser.ReadAreaEntries(path))
         {
-            _tracker?.OnAreaEntered(last.AreaId);
+            _tracker?.OnAreaEntered(entered.AreaId);
         }
 
         _tailer = new ClientLogTailer(path, startAtEnd: true);
@@ -278,7 +292,7 @@ public partial class App : Application, ITrayCommands
     {
         if (_tracker is not null)
         {
-            _viewModel.Update(_tracker.BuildView(_settings.Compact));
+            _viewModel.Update(_tracker.BuildView(_settings.ViewMode), _settings.ViewMode);
         }
     }
 

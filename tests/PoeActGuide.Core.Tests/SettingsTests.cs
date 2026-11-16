@@ -1,3 +1,4 @@
+using PoeActGuide.Core.Progress;
 using PoeActGuide.Core.Settings;
 
 namespace PoeActGuide.Core.Tests;
@@ -50,7 +51,7 @@ public sealed class SettingsTests : IDisposable
     {
         var keys = new HotkeySettings();
 
-        foreach (var text in new[] { keys.ToggleVisible, keys.PreviousAct, keys.NextAct, keys.ToggleCompact, keys.ToggleMoveMode })
+        foreach (var text in new[] { keys.ToggleVisible, keys.PreviousAct, keys.NextAct, keys.NextStep, keys.PreviousStep, keys.CycleViewMode, keys.ToggleMoveMode })
         {
             Assert.True(HotkeyGesture.TryParse(text, out _), text);
         }
@@ -71,7 +72,7 @@ public sealed class SettingsTests : IDisposable
     public void Saved_settings_load_back()
     {
         var store = new SettingsStore(SettingsPath);
-        var settings = new AppSettings { Left = 1234, Top = 56, Compact = true, ClientLogPath = @"C:\x\Client.txt" };
+        var settings = new AppSettings { Left = 1234, Top = 56, ViewMode = ViewMode.Compact, ClientLogPath = @"C:\x\Client.txt" };
         settings.Hotkeys.NextAct = "Alt+N";
 
         Assert.True(store.TrySave(settings));
@@ -79,7 +80,7 @@ public sealed class SettingsTests : IDisposable
 
         Assert.Equal(1234, loaded.Left);
         Assert.Equal(56, loaded.Top);
-        Assert.True(loaded.Compact);
+        Assert.Equal(ViewMode.Compact, loaded.ViewMode);
         Assert.Equal(@"C:\x\Client.txt", loaded.ClientLogPath);
         Assert.Equal("Alt+N", loaded.Hotkeys.NextAct);
     }
@@ -108,5 +109,15 @@ public sealed class SettingsTests : IDisposable
         Assert.Equal(1, settings.BackgroundOpacity);
         Assert.Equal(28, settings.FontSize);
         Assert.NotNull(settings.Hotkeys);
+    }
+
+    [Fact]
+    public void View_mode_is_stored_by_name()
+    {
+        var store = new SettingsStore(SettingsPath);
+        store.TrySave(new AppSettings { ViewMode = ViewMode.Full });
+
+        Assert.Contains("\"Full\"", File.ReadAllText(SettingsPath), StringComparison.Ordinal);
+        Assert.Equal(ViewMode.Full, store.Load().ViewMode);
     }
 }

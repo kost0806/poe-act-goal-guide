@@ -9,13 +9,13 @@ public static class GuideValidator
     public static IReadOnlyList<string> Validate(GuideData data)
     {
         var problems = new List<string>();
-        var seenIds = new HashSet<string>(StringComparer.Ordinal);
 
         for (var act = GuideData.FirstAct; act <= GuideData.LastAct; act++)
         {
-            if (data.Acts.Count(a => a.Act == act) != 1)
+            var count = data.Acts.Count(a => a.Act == act);
+            if (count != 1)
             {
-                problems.Add($"{act}장 항목이 정확히 하나가 아닙니다.");
+                problems.Add($"{act}장 항목이 정확히 하나가 아닙니다 ({count}개).");
             }
         }
 
@@ -26,37 +26,31 @@ public static class GuideValidator
                 problems.Add($"알 수 없는 액트 번호: {act.Act}");
             }
 
-            foreach (var goal in act.Goals)
+            for (var i = 0; i < act.Steps.Count; i++)
             {
-                if (string.IsNullOrWhiteSpace(goal.Id))
+                var step = act.Steps[i];
+                var where = $"{act.Act}장 {i + 1}번째 단계";
+
+                if (string.IsNullOrWhiteSpace(step.Text))
                 {
-                    problems.Add($"{act.Act}장: id 가 없는 목표가 있습니다 ('{goal.Text}').");
-                }
-                else if (!seenIds.Add(goal.Id))
-                {
-                    problems.Add($"중복된 목표 id: {goal.Id}");
+                    problems.Add($"{where}: text 가 비어 있습니다.");
                 }
 
-                if (string.IsNullOrWhiteSpace(goal.Text))
+                if (!Enum.IsDefined(step.Kind))
                 {
-                    problems.Add($"{goal.Id}: text 가 비어 있습니다.");
+                    problems.Add($"{where}: 알 수 없는 kind {step.Kind}.");
                 }
 
-                if (!Enum.IsDefined(goal.Kind))
+                if (step.Areas.Count == 0)
                 {
-                    problems.Add($"{goal.Id}: 알 수 없는 kind {goal.Kind}.");
+                    problems.Add($"{where}: areas 가 비어 있습니다.");
                 }
 
-                if (goal.Areas.Count == 0)
-                {
-                    problems.Add($"{goal.Id}: areas 가 비어 있습니다.");
-                }
-
-                foreach (var area in goal.Areas)
+                foreach (var area in step.Areas)
                 {
                     if (!data.Areas.ContainsKey(area))
                     {
-                        problems.Add($"{goal.Id}: 지역 표에 없는 지역 ID '{area}'.");
+                        problems.Add($"{where}: 지역 표에 없는 지역 ID '{area}'.");
                     }
                 }
             }

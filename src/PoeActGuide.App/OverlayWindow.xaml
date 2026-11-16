@@ -43,6 +43,12 @@
                 Visibility="{Binding IsManual, Converter={StaticResource BoolToVisibility}}">
           <TextBlock Text="수동 선택" FontSize="{Binding SmallFontSize}" Foreground="#FFFFE2A8" />
         </Border>
+        <TextBlock DockPanel.Dock="Left"
+                   Margin="8,0,0,0"
+                   VerticalAlignment="Center"
+                   Text="{Binding Progress}"
+                   FontSize="{Binding SmallFontSize}"
+                   Foreground="#FFB8B2A6" />
         <TextBlock DockPanel.Dock="Right"
                    VerticalAlignment="Center"
                    Text="{Binding Subtitle}"
@@ -57,42 +63,41 @@
                  Foreground="#FFFFB15C"
                  Visibility="{Binding HasStatus, Converter={StaticResource BoolToVisibility}}" />
 
-      <ItemsControl ItemsSource="{Binding Sections}" Focusable="False">
+      <ItemsControl Margin="0,6,0,0" ItemsSource="{Binding Steps}" Focusable="False">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <StackPanel Margin="0,8,0,0">
-              <TextBlock Text="{Binding Title}"
-                         Foreground="{Binding TitleBrush}"
-                         FontWeight="SemiBold"
-                         FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}"
-                         Margin="0,0,0,2" />
-              <ItemsControl ItemsSource="{Binding Goals}" Focusable="False">
-                <ItemsControl.ItemTemplate>
-                  <DataTemplate>
-                    <Grid Margin="0,1,0,1">
-                      <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="16" />
-                        <ColumnDefinition Width="*" />
-                      </Grid.ColumnDefinitions>
-                      <TextBlock Grid.Column="0"
-                                 Text="{Binding Bullet}"
-                                 Foreground="{Binding DataContext.TitleBrush, RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
-                      <StackPanel Grid.Column="1">
-                        <TextBlock Text="{Binding Text}"
-                                   TextWrapping="Wrap"
-                                   Foreground="{Binding TextBrush}"
-                                   FontWeight="{Binding Weight}" />
-                        <TextBlock Text="{Binding Note}"
-                                   TextWrapping="Wrap"
-                                   Foreground="{Binding NoteBrush}"
-                                   FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}"
-                                   Visibility="{Binding HasNote, Converter={StaticResource BoolToVisibility}}" />
-                      </StackPanel>
-                    </Grid>
-                  </DataTemplate>
-                </ItemsControl.ItemTemplate>
-              </ItemsControl>
-            </StackPanel>
+            <Border Background="{Binding RowBrush}" CornerRadius="3" Padding="3,2" Margin="0,1,0,1">
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                        Margin="0,1,6,0"
+                        Padding="3,0"
+                        MinWidth="40"
+                        VerticalAlignment="Top"
+                        CornerRadius="2"
+                        BorderThickness="1"
+                        BorderBrush="{Binding TagBrush}">
+                  <TextBlock Text="{Binding Tag}"
+                             HorizontalAlignment="Center"
+                             Foreground="{Binding TagBrush}"
+                             FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}" />
+                </Border>
+                <StackPanel Grid.Column="1">
+                  <TextBlock Text="{Binding Text}"
+                             TextWrapping="Wrap"
+                             Foreground="{Binding TextBrush}"
+                             FontWeight="{Binding Weight}" />
+                  <TextBlock Text="{Binding Note}"
+                             TextWrapping="Wrap"
+                             Foreground="{Binding NoteBrush}"
+                             FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}"
+                             Visibility="{Binding ShowNote, Converter={StaticResource BoolToVisibility}}" />
+                </StackPanel>
+              </Grid>
+            </Border>
           </DataTemplate>
         </ItemsControl.ItemTemplate>
       </ItemsControl>

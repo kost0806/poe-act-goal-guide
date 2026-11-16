@@ -70,6 +70,33 @@ public static partial class ClientLogParser
     /// <returns>The last area entered, or null when none was found.</returns>
     public static AreaEntered? FindLastAreaEntered(Stream stream, int maxBytes = DefaultTailScanBytes)
     {
+        var all = ReadAreaEntries(stream, maxBytes);
+        return all.Count > 0 ? all[^1] : null;
+    }
+
+    /// <summary>Every area entered in the last <paramref name="maxBytes"/> of a log file, oldest first.</summary>
+    /// <param name="path">Path of <c>Client.txt</c>.</param>
+    /// <param name="maxBytes">How far back from the end to look.</param>
+    /// <returns>The area changes; empty when none were found or the file cannot be read.</returns>
+    public static IReadOnlyList<AreaEntered> ReadAreaEntries(string path, int maxBytes = DefaultTailScanBytes)
+    {
+        try
+        {
+            using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);
+            return ReadAreaEntries(stream, maxBytes);
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException)
+        {
+            return Array.Empty<AreaEntered>();
+        }
+    }
+
+    /// <summary>Every area entered in the last <paramref name="maxBytes"/> of a stream, oldest first.</summary>
+    /// <param name="stream">A readable, seekable stream over the log.</param>
+    /// <param name="maxBytes">How far back from the end to look.</param>
+    /// <returns>The area changes.</returns>
+    public static IReadOnlyList<AreaEntered> ReadAreaEntries(Stream stream, int maxBytes = DefaultTailScanBytes)
+    {
         ArgumentNullException.ThrowIfNull(stream);
         var start = Math.Max(0, stream.Length - maxBytes);
         stream.Seek(start, SeekOrigin.Begin);
@@ -80,15 +107,15 @@ public static partial class ClientLogParser
             reader.ReadLine(); // drop the partial first line
         }
 
-        AreaEntered? last = null;
+        var entries = new List<AreaEntered>();
         while (reader.ReadLine() is { } line)
         {
-            if (TryParseAreaEntered(line, out var entered))
+            if (TryParseAreaEntered(line, out var entered) && entered is not null)
             {
-                last = entered;
+                entries.Add(entered);
             }
         }
 
-        return last;
+        return entries;
     }
 }

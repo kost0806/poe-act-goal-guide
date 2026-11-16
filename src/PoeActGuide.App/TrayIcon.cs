@@ -3,6 +3,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using PoeActGuide.App.Interop;
+using PoeActGuide.Core.Progress;
 
 namespace PoeActGuide.App;
 
@@ -11,13 +12,13 @@ internal interface ITrayCommands
 {
     bool IsOverlayVisible { get; }
 
-    bool IsCompact { get; }
+    ViewMode ViewMode { get; }
 
     bool IsMoveMode { get; }
 
     void ToggleVisible();
 
-    void ToggleCompact();
+    void SetViewMode(ViewMode mode);
 
     void ToggleMoveMode();
 
@@ -26,6 +27,10 @@ internal interface ITrayCommands
     void NextAct();
 
     void BackToDetectedAct();
+
+    void NextStep();
+
+    void PreviousStep();
 
     void ChooseLogFile();
 
@@ -42,7 +47,9 @@ internal sealed class TrayIcon : IDisposable
     private readonly NotifyIcon _icon;
     private readonly Icon _image;
     private readonly ToolStripMenuItem _visibleItem;
+    private readonly ToolStripMenuItem _normalItem;
     private readonly ToolStripMenuItem _compactItem;
+    private readonly ToolStripMenuItem _fullItem;
     private readonly ToolStripMenuItem _moveItem;
 
     public TrayIcon(ITrayCommands commands)
@@ -50,12 +57,19 @@ internal sealed class TrayIcon : IDisposable
         _image = DrawIcon();
         var menu = new ContextMenuStrip();
         _visibleItem = new ToolStripMenuItem("오버레이 보이기", null, (_, _) => commands.ToggleVisible());
-        _compactItem = new ToolStripMenuItem("간단히 보기", null, (_, _) => commands.ToggleCompact());
+        _normalItem = new ToolStripMenuItem("기본 보기", null, (_, _) => commands.SetViewMode(ViewMode.Normal));
+        _compactItem = new ToolStripMenuItem("간단히 보기", null, (_, _) => commands.SetViewMode(ViewMode.Compact));
+        _fullItem = new ToolStripMenuItem("액트 전체 보기", null, (_, _) => commands.SetViewMode(ViewMode.Full));
         _moveItem = new ToolStripMenuItem("위치 이동 모드", null, (_, _) => commands.ToggleMoveMode());
         menu.Items.Add(_visibleItem);
-        menu.Items.Add(_compactItem);
         menu.Items.Add(_moveItem);
         menu.Items.Add(new ToolStripSeparator());
+        menu.Items.Add(_normalItem);
+        menu.Items.Add(_compactItem);
+        menu.Items.Add(_fullItem);
+        menu.Items.Add(new ToolStripSeparator());
+        menu.Items.Add(new ToolStripMenuItem("다음 단계", null, (_, _) => commands.NextStep()));
+        menu.Items.Add(new ToolStripMenuItem("이전 단계", null, (_, _) => commands.PreviousStep()));
         menu.Items.Add(new ToolStripMenuItem("이전 액트", null, (_, _) => commands.PreviousAct()));
         menu.Items.Add(new ToolStripMenuItem("다음 액트", null, (_, _) => commands.NextAct()));
         menu.Items.Add(new ToolStripMenuItem("자동 감지로 돌아가기", null, (_, _) => commands.BackToDetectedAct()));
@@ -68,7 +82,9 @@ internal sealed class TrayIcon : IDisposable
         menu.Opening += (_, _) =>
         {
             _visibleItem.Checked = commands.IsOverlayVisible;
-            _compactItem.Checked = commands.IsCompact;
+            _normalItem.Checked = commands.ViewMode == ViewMode.Normal;
+            _compactItem.Checked = commands.ViewMode == ViewMode.Compact;
+            _fullItem.Checked = commands.ViewMode == ViewMode.Full;
             _moveItem.Checked = commands.IsMoveMode;
         };
 

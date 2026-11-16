@@ -1,3 +1,6 @@
+using System.Text.Json.Serialization;
+using PoeActGuide.Core.Progress;
+
 namespace PoeActGuide.Core.Settings;
 
 /// <summary>User settings, stored as JSON in %APPDATA%\PoeActGuide\settings.json.</summary>
@@ -21,8 +24,9 @@ public sealed class AppSettings
     /// <summary>Base font size.</summary>
     public double FontSize { get; set; } = 13;
 
-    /// <summary>Show only main goals plus goals in the current area or marked key.</summary>
-    public bool Compact { get; set; }
+    /// <summary>How much of the route to show: Normal (기본), Compact (간단히) or Full (전체).</summary>
+    [JsonConverter(typeof(JsonStringEnumConverter<ViewMode>))]
+    public ViewMode ViewMode { get; set; } = ViewMode.Normal;
 
     /// <summary>Global hotkeys.</summary>
     public HotkeySettings Hotkeys { get; set; } = new();
@@ -37,6 +41,11 @@ public sealed class AppSettings
         Left = double.IsFinite(Left) ? Left : 20;
         Top = double.IsFinite(Top) ? Top : 160;
         Hotkeys ??= new HotkeySettings();
+        if (!Enum.IsDefined(ViewMode))
+        {
+            ViewMode = ViewMode.Normal;
+        }
+
         return this;
     }
 
@@ -56,8 +65,14 @@ public sealed class HotkeySettings
     /// <summary>Show the next act.</summary>
     public string NextAct { get; set; } = "Ctrl+Shift+PageDown";
 
-    /// <summary>Switch between the full and compact list.</summary>
-    public string ToggleCompact { get; set; } = "Ctrl+Shift+C";
+    /// <summary>Mark the current step done and move to the next one.</summary>
+    public string NextStep { get; set; } = "Ctrl+Shift+Right";
+
+    /// <summary>Move back one step.</summary>
+    public string PreviousStep { get; set; } = "Ctrl+Shift+Left";
+
+    /// <summary>Cycle the view mode: 기본 → 간단히 → 전체.</summary>
+    public string CycleViewMode { get; set; } = "Ctrl+Shift+C";
 
     /// <summary>Enter or leave move mode (drag the overlay with the mouse).</summary>
     public string ToggleMoveMode { get; set; } = "Ctrl+Shift+M";
