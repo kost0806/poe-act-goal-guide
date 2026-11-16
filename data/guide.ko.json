@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "game": "Path of Exile 1",
+  "notes": "kind: main(진행) / trial(전직 시험) / passive(패시브 포인트) / recipe(조합법) / quest(유용한 퀘스트). areas 는 data/areas.ko.json 의 지역 ID이며, 현재 지역이 여기에 있으면 오버레이에서 강조된다. key=true 는 특히 중요한 항목(★).",
+  "acts": [
+    {
+      "act": 1,
+      "goals": [
+        { "id": "a1-main-hillock", "kind": "main", "areas": ["1_1_1"], "text": "황혼의 해안에서 힐록 처치" },
+        { "id": "a1-main-brutus", "kind": "main", "areas": ["1_1_7_2"], "text": "수용소 상층에서 강대한 감독관 브루투스 처치" },
+        { "id": "a1-main-merveil", "kind": "main", "areas": ["1_1_11_1", "1_1_11_2"], "text": "분노의 암굴에서 사이렌 머베일 처치" },
+
+        { "id": "a1-trial-prison", "kind": "trial", "areas": ["1_1_7_1"], "text": "수용소 하층 전직 시험", "note": "일반 미궁에 필요한 시험 6개 중 1번째" },
+
+        { "id": "a1-passive-dweller", "kind": "passive", "areas": ["1_1_4_1", "1_1_4_0"], "text": "물에 잠긴 심연에서 심연의 주인 처치", "note": "물에 잠긴 길에서 진입 · 보상: 타클레이 (심연의 주인)" },
+        { "id": "a1-passive-mariner", "kind": "passive", "areas": ["1_1_9", "1_1_9a"], "text": "배들의 묘지에서 페어그레이브즈 선장 처치", "note": "올플레임 획득 · 보상: 베스텔 (조난된 선원)" },
+
+        { "id": "a1-quest-eggs", "kind": "quest", "areas": ["1_1_3"], "text": "갯벌의 로아 둥지에서 문양 3개 획득", "note": "물에 잠긴 길 개방 · 보상: 타클레이 스킬 젬 (로아 알 깨트리기)" },
+        { "id": "a1-quest-mercy", "kind": "quest", "areas": ["1_1_2a"], "text": "물결 섬에서 우박 갈퀴 처치 → 약품 상자", "note": "네사에게 전달 시 보조 젬 + 퀵실버 플라스크 구매 가능 (자비로운 임무)" }
+      ]
+    },
+    {
+      "act": 2,
+      "goals": [
+        { "id": "a2-main-fidelitas", "kind": "main", "areas": ["1_2_6_2"], "text": "죄악의 방 2층에서 슬퍼하는 피델리타스 처치", "note": "사악한 마석 획득 · 보상: 스킬 젬 (검은 침략자)" },
+        { "id": "a2-main-arteri", "kind": "main", "areas": ["1_2_9"], "text": "서쪽 숲에서 지휘관 아테리 처치 → 봉인 해제", "note": "길이 열리면 1장 베스텔에게 '나아가는 길' 보상" },
+        { "id": "a2-main-bandits", "kind": "main", "areas": ["1_2_4", "1_2_9", "1_2_12"], "text": "도적 처리 → 에라미어에게 '정점' 받기", "note": "크레이틴(부서진 다리) · 알리라(서쪽 숲) · 오크(습지대)" },
+        { "id": "a2-main-vaalruins", "kind": "main", "areas": ["1_2_12", "1_2_11"], "text": "습지대의 나무 뿌리를 정점으로 녹여 바알 유적 진입" },
+        { "id": "a2-main-oversoul", "kind": "main", "areas": ["1_2_14_2", "1_2_14_3"], "text": "고대 피라미드에서 바알 신령 처치" },
+
+        { "id": "a2-trial-sins", "kind": "trial", "areas": ["1_2_6_2"], "text": "죄악의 방 2층 전직 시험" },
+        { "id": "a2-trial-crypt", "kind": "trial", "areas": ["1_2_5_1"], "text": "지하실 1층 전직 시험" },
+
+        { "id": "a2-passive-sacred", "kind": "passive", "areas": ["1_2_15", "1_2_5_1", "1_2_5_2"], "text": "지하실 2층 제단에서 황금의 손 획득", "note": "몰락한 성소 유적 → 지하실 · 보상: 이이나 (성지를 지나)" },
+        { "id": "a2-passive-wayforward", "kind": "passive", "areas": ["1_2_9", "1_1_town"], "text": "아테리 처치·봉인 해제 후 1장 베스텔에게 보고", "note": "1장 퀘스트 '나아가는 길' — 라이온아이 초소로 돌아가서 받기" },
+        { "id": "a2-passive-bandits", "kind": "passive", "areas": ["1_2_4", "1_2_9", "1_2_12"], "text": "도적 두목 3명 모두 처치 → 에라미어 보상", "note": "한 명을 도우면 패시브 포인트 대신 그 도적의 보너스를 받음" },
+
+        { "id": "a2-recipe-vaal", "kind": "recipe", "areas": ["1_2_14_2"], "text": "암굴: 바알 스킬 피해 1단계" },
+        { "id": "a2-recipe-spell", "kind": "recipe", "areas": ["1_2_14_3"], "text": "고대 피라미드: 주문 피해 1단계" },
+
+        { "id": "a2-quest-weaver", "kind": "quest", "areas": ["1_2_10"], "text": "거미의 방에서 직공 처치 → 말리가로의 가시", "note": "실크에게서 시작 · 보상: 보조 젬 (예리하고 잔인한)" },
+        { "id": "a2-quest-whitebeast", "kind": "quest", "areas": ["1_2_2", "1_2_2a"], "text": "버려진 경작지의 굴에서 거대한 백색 야수 처치", "note": "보상: 대용량 생명력 플라스크 (선택)" }
+      ]
+    },
+    {
+      "act": 3,
+      "goals": [
+        { "id": "a3-main-clarissa", "kind": "main", "areas": ["1_3_1"], "text": "사안 시내에서 클라리사 구출" },
+        { "id": "a3-main-piety1", "kind": "main", "areas": ["1_3_3_1"], "text": "화장터에서 파이어티 처치 → 톨먼의 팔찌", "note": "클라리사에게 전달하면 하수도 열쇠 (떠나보낸 연인)" },
+        { "id": "a3-main-ribbon", "kind": "main", "areas": ["1_3_7", "1_3_9", "1_3_8_2"], "text": "전쟁터의 끈 감개 + 항구의 퀘스트 아이템 → 디알라", "note": "솔라리스 사원 2층 디알라에게서 지옥불 활석 받기" },
+        { "id": "a3-main-gravicius", "kind": "main", "areas": ["1_3_10_1", "1_3_13"], "text": "하수도 장애물을 태우고 칠흑의 군단 주둔지에서 그라비시우스 장군 처치", "note": "보상: 마라모아 스킬 젬 (오른팔 잘라내기)" },
+        { "id": "a3-main-piety2", "kind": "main", "areas": ["1_3_14_1", "1_3_14_2"], "text": "루나리스 사원 2층에서 파이어티 처치 → 탑 열쇠" },
+        { "id": "a3-main-dominus", "kind": "main", "areas": ["1_3_15", "1_3_18_1", "1_3_18_2"], "text": "황실 정원 → 신의 셉터 상층에서 고위 템플러 도미누스 처치" },
+
+        { "id": "a3-trial-crematorium", "kind": "trial", "areas": ["1_3_3_1"], "text": "화장터 전직 시험" },
+        { "id": "a3-trial-catacombs", "kind": "trial", "areas": ["1_3_5", "1_3_6"], "text": "지하 묘지 전직 시험", "note": "장터에서 진입" },
+        { "id": "a3-trial-gardens", "kind": "trial", "areas": ["1_3_15"], "text": "황실 정원 전직 시험" },
+        { "id": "a3-trial-lab", "kind": "trial", "areas": ["1_3_town", "Labyrinth_Airlock"], "key": true, "text": "시험 6개 완료 → 일반 미궁 (첫 전직)", "note": "사안 야영지 → 지망자의 광장 · 권장 레벨 33 전후 · 완료 시 '모든 저항 1단계' 조합법" },
+
+        { "id": "a3-passive-victario", "kind": "passive", "areas": ["1_3_10_1"], "text": "하수도에서 백금 흉상 3개 획득", "note": "보상: 하간 (빅타리오의 비밀)" },
+        { "id": "a3-passive-pets", "kind": "passive", "areas": ["1_3_14_2"], "text": "루나리스 사원 2층에서 파이어티 처치", "note": "보상: 그리고어 (파이어티의 애완동물)" },
+
+        { "id": "a3-recipe-ms", "kind": "recipe", "areas": ["1_3_1"], "key": true, "text": "사안 시내: 이동 속도 1단계" },
+        { "id": "a3-recipe-def", "kind": "recipe", "areas": ["1_3_3_1"], "text": "화장터: 방어 1단계" },
+        { "id": "a3-recipe-phys", "kind": "recipe", "areas": ["1_3_10_1"], "text": "하수도: 물리 피해 1단계" },
+        { "id": "a3-recipe-eleatk", "kind": "recipe", "areas": ["1_3_6"], "text": "지하 묘지: 공격 원소 피해 1단계" },
+        { "id": "a3-recipe-attr", "kind": "recipe", "areas": ["1_3_15"], "text": "황실 정원: 모든 능력치 1단계" },
+        { "id": "a3-recipe-light", "kind": "recipe", "areas": ["1_3_14_2"], "text": "루나리스 사원 2층: 번개 피해 1단계" },
+        { "id": "a3-recipe-fire", "kind": "recipe", "areas": ["1_3_8_2"], "text": "솔라리스 사원 2층: 화염 피해 1단계" },
+        { "id": "a3-recipe-regen", "kind": "recipe", "areas": ["1_3_17_2"], "text": "문서 보관소: 생명력·마나 재생 1단계" },
+
+        { "id": "a3-quest-library", "kind": "quest", "areas": ["1_3_17_1", "1_3_17_2"], "key": true, "text": "도서관 → 문서 보관소에서 황금 책자 4장", "note": "황실 정원에서 진입, 양초를 찾아 문서 보관소로 · 시오사 보상: 보조 젬 + 이후 시오사에게 모든 젬 구매 가능 (운명의 흔적)" }
+      ]
+    },
+    {
+      "act": 4,
+      "goals": [
+        { "id": "a4-main-voll", "kind": "main", "areas": ["1_4_2"], "text": "말라붙은 호수에서 정화의 황제 볼 처치 → 데쉬렛의 깃발", "note": "하이게이트에서 깃발 사용 → 광산 개방 (봉인 해제)" },
+        { "id": "a4-main-kaom", "kind": "main", "areas": ["1_4_4_1", "1_4_4_3"], "text": "카옴의 요새에서 카옴 왕 처치 → 광분의 눈" },
+        { "id": "a4-main-daresso", "kind": "main", "areas": ["1_4_5_1", "1_4_5_2"], "text": "대 투기장에서 검의 제왕 다레소 처치 → 갈망의 눈" },
+        { "id": "a4-main-piety", "kind": "main", "areas": ["1_4_6_1", "1_4_6_2"], "text": "짐승의 소굴 2층에서 흉물 파이어티 처치" },
+        { "id": "a4-main-malachai", "kind": "main", "areas": ["1_4_6_3"], "text": "수확소에서 도이드리·말리가로·샤브론 처치 후 말라카이 처치", "note": "내장 세 개를 파이어티에게 (말라카이의 육신)" },
+
+        { "id": "a4-trial-lab", "kind": "trial", "areas": ["1_3_town", "Labyrinth_Airlock", "1_4_3_3"], "key": true, "text": "아직이라면 일반 미궁 도전 (첫 전직)", "note": "수정 광맥 도착 후 사안 야영지 → 지망자의 광장 추천" },
+
+        { "id": "a4-passive-deshret", "kind": "passive", "areas": ["1_4_3_1", "1_4_3_2"], "text": "광산 2층에서 데쉬렛의 영혼 해방", "note": "보상: 타수니 (불굴의 혼백)" },
+
+        { "id": "a4-recipe-colours", "kind": "recipe", "areas": ["1_4_3_1"], "key": true, "text": "광산 1층: 소켓 색상 변경" },
+        { "id": "a4-recipe-links", "kind": "recipe", "areas": ["1_4_4_3"], "key": true, "text": "카옴의 요새: 소켓 연결 (2~4 연결)" },
+        { "id": "a4-recipe-sockets", "kind": "recipe", "areas": ["1_4_5_2"], "key": true, "text": "대 투기장: 소켓 개수 (2~4개)" },
+        { "id": "a4-recipe-eleres", "kind": "recipe", "areas": ["1_4_6_2"], "key": true, "text": "짐승의 소굴 2층: 원소 저항 2단계" },
+        { "id": "a4-recipe-speed", "kind": "recipe", "areas": ["1_4_2"], "text": "말라붙은 호수: 공격·시전·함성 속도 1단계" },
+        { "id": "a4-recipe-cold", "kind": "recipe", "areas": ["1_4_3_3"], "text": "수정 광맥: 냉기 피해 1단계" },
+        { "id": "a4-recipe-ailment", "kind": "recipe", "areas": ["1_4_7"], "text": "오르막길: 상태 이상·기절·저주 완화 1단계" }
+      ]
+    },
+    {
+      "act": 5,
+      "goals": [
+        { "id": "a5-main-krow", "kind": "main", "areas": ["1_5_1"], "text": "노예 감호소에서 간수 크로우 처치" },
+        { "id": "a5-main-casticus", "kind": "main", "areas": ["1_5_2"], "text": "관리 구역에서 카스티쿠스 법관 처치" },
+        { "id": "a5-main-avarius", "kind": "main", "areas": ["1_5_4", "1_5_5"], "text": "결백의 방에서 고위 템플러 아배리우스 처치" },
+        { "id": "a5-main-sign", "kind": "main", "areas": ["1_5_3b", "1_5_6"], "text": "납골당에서 정화의 징표 획득" },
+        { "id": "a5-main-kitava", "kind": "main", "areas": ["1_5_8"], "key": true, "text": "대성당 옥상에서 키타바 처치", "note": "처치 후 원소 저항 영구 -30% — 저항 장비 미리 준비" },
+
+        { "id": "a5-passive-science", "kind": "passive", "areas": ["1_5_2"], "text": "관리 구역에서 타락 감지기 획득", "note": "보상: 바일렌타 (과학에의 맹신)" },
+        { "id": "a5-passive-torments", "kind": "passive", "areas": ["1_5_7"], "text": "성유물 보관실에서 키타바의 고난 3개 획득", "note": "맵 구석을 확인 · 보상: 라니 (키타바의 고난)" },
+
+        { "id": "a5-recipe-ms2", "kind": "recipe", "areas": ["1_5_5"], "key": true, "text": "결백의 방: 이동 속도 2단계" },
+        { "id": "a5-recipe-phys2", "kind": "recipe", "areas": ["1_5_6"], "text": "납골당: 물리 피해 2단계" },
+        { "id": "a5-recipe-acc", "kind": "recipe", "areas": ["1_5_7"], "text": "성유물 보관실: 정확도 1단계" }
+      ]
+    },
+    {
+      "act": 6,
+      "goals": [
+        { "id": "a6-main-queen", "kind": "main", "areas": ["2_6_4"], "text": "갯벌에서 명예 잃은 여왕 처치" },
+        { "id": "a6-main-shavronne", "kind": "main", "areas": ["2_6_7_2"], "text": "샤브론의 탑에서 되돌아온 샤브론 & 재조립된 브루투스 처치" },
+        { "id": "a6-main-flag", "kind": "main", "areas": ["2_6_13", "2_6_14"], "text": "분노의 암굴에서 검은 깃발 획득 → 등대 점화" },
+        { "id": "a6-main-brineking", "kind": "main", "areas": ["2_6_15"], "text": "염수왕의 암초에서 염수왕 소아고스 처치" },
+
+        { "id": "a6-trial-prison", "kind": "trial", "areas": ["2_6_7_1"], "text": "수용소 하층 전직 시험", "note": "잔혹한 미궁에 필요한 시험 3개 중 1번째" },
+
+        { "id": "a6-passive-tukohama", "kind": "passive", "areas": ["2_6_5"], "text": "카루이 요새에서 투코하마 처치", "note": "보상: 타클레이 (전쟁의 아버지)" },
+        { "id": "a6-passive-abberath", "kind": "passive", "areas": ["2_6_8"], "text": "죄수의 문 화염 흡수자의 계곡에서 아버라스 처치", "note": "보상: 베스텔 (발굽달린 자)" },
+        { "id": "a6-passive-ryslatha", "kind": "passive", "areas": ["2_6_11"], "text": "습지대 유충 부화장에서 꼭두각시 여사 리슬라사 처치", "note": "보상: 타클레이 (꼭두각시 여사)" },
+
+        { "id": "a6-recipe-dblres", "kind": "recipe", "areas": ["2_6_7_1"], "key": true, "text": "수용소 하층: 이중 저항 1단계" },
+        { "id": "a6-recipe-life2", "kind": "recipe", "areas": ["2_6_14"], "key": true, "text": "등대: 생명력·마나 2단계" },
+        { "id": "a6-recipe-def2", "kind": "recipe", "areas": ["2_6_5"], "text": "카루이 요새: 방어 2단계" },
+        { "id": "a6-recipe-spell2", "kind": "recipe", "areas": ["2_6_7_2"], "text": "샤브론의 탑: 주문 피해 2단계" },
+        { "id": "a6-recipe-attr2", "kind": "recipe", "areas": ["2_6_9"], "text": "서쪽 숲: 능력치 2단계" },
+
+        { "id": "a6-quest-pantheon", "kind": "quest", "areas": ["2_6_15", "2_6_town"], "text": "염수왕 처치 후 판테온 신 선택", "note": "판테온 창에서 주신·하위신 지정 (영혼은 신 처치로 업그레이드)" }
+      ]
+    },
+    {
+      "act": 7,
+      "goals": [
+        { "id": "a7-main-map", "kind": "main", "areas": ["2_7_4"], "text": "지하실에서 말리가로의 지도 획득" },
+        { "id": "a7-main-maligaro", "kind": "main", "areas": ["2_7_5_1", "2_7_5_map"], "text": "죄악의 방 1층 지도 장치 → 말리가로의 지성소에서 말리가로 처치", "note": "어둠의 사신 독을 실크에게 → 흑요석 열쇠 (비밀의 거미줄)" },
+        { "id": "a7-main-greust", "kind": "main", "areas": ["2_7_5_2", "2_7_6", "2_7_7"], "text": "죄악의 방 2층 비밀 통로 → 잿빛 들판에서 그루스트 처치" },
+        { "id": "a7-main-fireflies", "kind": "main", "areas": ["2_7_9"], "text": "공포의 잡목림에서 반딧불이 7마리 획득", "note": "바알 도시에서 이이나에게 (길을 밝히는 빛)" },
+        { "id": "a7-main-arakaali", "kind": "main", "areas": ["2_7_11", "2_7_12_1", "2_7_12_2"], "text": "부패의 사원 2층에서 아라칼리 처치" },
+
+        { "id": "a7-trial-crypt", "kind": "trial", "areas": ["2_7_4"], "text": "지하실 전직 시험" },
+        { "id": "a7-trial-sins", "kind": "trial", "areas": ["2_7_5_2"], "text": "죄악의 방 2층 전직 시험" },
+        { "id": "a7-trial-lab", "kind": "trial", "areas": ["2_7_town", "Labyrinth_Airlock"], "key": true, "text": "시험 3개 완료 → 잔혹한 미궁 (두 번째 전직)", "note": "지망자의 광장 웨이포인트 · 완료 시 '이중 저항 2단계' 조합법" },
+
+        { "id": "a7-passive-greust", "kind": "passive", "areas": ["2_7_7"], "text": "잿빛 들판에서 그루스트 처치", "note": "천면의 주인" },
+        { "id": "a7-passive-kishara", "kind": "passive", "areas": ["2_7_10"], "text": "둑길에서 키샤라의 별 획득", "note": "보상: 웨일럼 (키샤라의 별)" },
+        { "id": "a7-passive-gruthkul", "kind": "passive", "areas": ["2_7_9"], "text": "공포의 잡목림에서 절망의 어머니 그루스컬 처치", "note": "절망의 여왕" },
+
+        { "id": "a7-recipe-dot", "kind": "recipe", "areas": ["2_7_4"], "text": "지하실: 지속 피해 1단계" },
+        { "id": "a7-recipe-light2", "kind": "recipe", "areas": ["2_7_5_1"], "text": "죄악의 방 1층: 번개 피해 2단계" },
+        { "id": "a7-recipe-mana", "kind": "recipe", "areas": ["2_7_5_2"], "text": "죄악의 방 2층: 마나 재생 1단계" },
+        { "id": "a7-recipe-cold2", "kind": "recipe", "areas": ["2_7_10"], "text": "둑길: 냉기 피해 2단계" },
+        { "id": "a7-recipe-fire2", "kind": "recipe", "areas": ["2_7_9"], "text": "공포의 잡목림: 화염 피해 2단계" },
+        { "id": "a7-recipe-chaos", "kind": "recipe", "areas": ["2_7_12_2"], "text": "부패의 사원 2층: 카오스 피해 1단계" }
+      ]
+    },
+    {
+      "act": 8,
+      "goals": [
+        { "id": "a8-main-doedre", "kind": "main", "areas": ["2_8_2_1", "2_8_2_2"], "text": "도이드리의 정화조에서 끔찍한 도이드리 처치" },
+        { "id": "a8-main-dawn", "kind": "main", "areas": ["2_8_12_1", "2_8_12_2"], "text": "솔라리스 사원 2층에서 솔라리스의 선구자 여명 처치 → 태양의 보주" },
+        { "id": "a8-main-dusk", "kind": "main", "areas": ["2_8_7_1_", "2_8_7_2"], "text": "루나리스 사원 2층에서 루나리스의 선구자 황혼 처치 → 달의 보주" },
+        { "id": "a8-main-sisters", "kind": "main", "areas": ["2_8_13"], "text": "항구 다리 하늘 성소에서 루나리스 & 솔라리스 처치" },
+
+        { "id": "a8-trial-bath", "kind": "trial", "areas": ["2_8_5"], "text": "목욕탕 전직 시험", "note": "무자비한 미궁에 필요한 시험 3개 중 1번째" },
+
+        { "id": "a8-passive-love", "kind": "passive", "areas": ["2_8_8"], "text": "부두에서 영원의 앙크 획득 → 톨먼 처치", "note": "보상: 클라리사 (끝난 사랑)" },
+        { "id": "a8-passive-gemling", "kind": "passive", "areas": ["2_8_9"], "text": "곡물의 문에서 마석 군단병 처치", "note": "보상: 마라모아 (마석병 군단)" },
+        { "id": "a8-passive-yugul", "kind": "passive", "areas": ["2_8_4"], "text": "고층 정원에서 공포의 반향 유굴 처치", "note": "목욕탕 경유 · 공포의 반향" },
+
+        { "id": "a8-recipe-eleres3", "kind": "recipe", "areas": ["2_8_2_2"], "key": true, "text": "도이드리의 정화조: 원소 저항 3단계" },
+        { "id": "a8-recipe-flask", "kind": "recipe", "areas": ["2_8_5"], "text": "목욕탕: 플라스크 지속시간 1단계" },
+        { "id": "a8-recipe-trap", "kind": "recipe", "areas": ["2_8_12_2"], "text": "솔라리스 사원 2층: 덫·지뢰 1단계" },
+        { "id": "a8-recipe-minion", "kind": "recipe", "areas": ["2_8_7_2"], "text": "루나리스 사원 2층: 소환수 1단계" }
+      ]
+    },
+    {
+      "act": 9,
+      "goals": [
+        { "id": "a9-main-storm", "kind": "main", "areas": ["2_9_3", "2_9_6"], "text": "바스티리 사막의 태풍의 칼 + 끓어오르는 호수의 바실리스크 처치", "note": "씬에게서 병에 담긴 태풍 받기" },
+        { "id": "a9-main-garukhan", "kind": "main", "areas": ["2_9_7", "2_9_8"], "text": "채석장에서 바람의 여왕 가루칸 처치" },
+        { "id": "a9-main-adus", "kind": "main", "areas": ["2_9_9"], "text": "제련소에서 아두스 장군 처치" },
+        { "id": "a9-main-trinity", "kind": "main", "areas": ["2_9_10_1", "2_9_10_2"], "text": "썩어가는 중심부에서 타락한 삼위일체 처치" },
+
+        { "id": "a9-trial-tunnel", "kind": "trial", "areas": ["2_9_7"], "text": "터널 전직 시험", "note": "웨이포인트 전에 위치" },
+
+        { "id": "a9-passive-shakari", "kind": "passive", "areas": ["2_9_4"], "text": "오아시스에서 모래의 여왕 샤카리 처치", "note": "모래의 여왕" },
+        { "id": "a9-passive-garukhan", "kind": "passive", "areas": ["2_9_8"], "text": "채석장에서 가루칸 처치", "note": "하이게이트의 지도자" },
+
+        { "id": "a9-recipe-speed2", "kind": "recipe", "areas": ["2_9_3"], "text": "바스티리 사막: 공격·시전 속도 2단계" },
+        { "id": "a9-recipe-spell3", "kind": "recipe", "areas": ["2_9_6"], "text": "끓어오르는 호수: 주문 피해 3단계" },
+        { "id": "a9-recipe-attr2", "kind": "recipe", "areas": ["2_9_7"], "text": "터널: 모든 능력치 2단계" },
+        { "id": "a9-recipe-phys3", "kind": "recipe", "areas": ["2_9_8"], "text": "채석장: 물리 피해 3단계" },
+        { "id": "a9-recipe-trigger", "kind": "recipe", "areas": ["2_9_9"], "text": "제련소: 스킬 사용 시 장착된 주문 발동" }
+      ]
+    },
+    {
+      "act": 10,
+      "goals": [
+        { "id": "a10-main-bannon", "kind": "main", "areas": ["2_10_1"], "text": "대성당 옥상에서 역병날개 처치 → 배넌 구출" },
+        { "id": "a10-main-avarius", "kind": "main", "areas": ["2_10_3", "2_10_4"], "text": "무너진 방에서 재조립된 아배리우스 처치 → 정화의 지팡이" },
+        { "id": "a10-main-kitava", "kind": "main", "areas": ["2_10_5", "2_10_6"], "key": true, "text": "먹이통에서 키타바 처치", "note": "처치 후 원소 저항 추가 -30% (총 -60%)" },
+
+        { "id": "a10-trial-ossuary", "kind": "trial", "areas": ["2_10_9"], "text": "납골당 전직 시험", "note": "파괴된 광장에서 진입" },
+        { "id": "a10-trial-lab", "kind": "trial", "areas": ["2_10_town", "Labyrinth_Airlock"], "key": true, "text": "시험 3개 완료 → 무자비한 미궁 (세 번째 전직)" },
+
+        { "id": "a10-passive-vilenta", "kind": "passive", "areas": ["2_10_7"], "text": "관리 구역에서 바일렌타 처치", "note": "보상: 라니 (바일렌타의 복수)" },
+        { "id": "a10-passive-hunger", "kind": "passive", "areas": ["2_10_6"], "text": "키타바 처치 후 카루이 해안에서 보고", "note": "허기의 끝 — 패시브 포인트 2" },
+
+        { "id": "a10-recipe-life3", "kind": "recipe", "areas": ["2_10_6"], "key": true, "text": "먹이통: 생명력·마나 3단계" },
+        { "id": "a10-recipe-acc2", "kind": "recipe", "areas": ["2_10_4"], "text": "무너진 방: 정확도 2단계" },
+        { "id": "a10-recipe-chaos2", "kind": "recipe", "areas": ["2_10_9"], "text": "납골당: 카오스 피해 2단계" }
+      ]
+    }
+  ]
+}

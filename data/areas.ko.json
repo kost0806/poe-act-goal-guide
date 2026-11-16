@@ -1,0 +1,1080 @@
+{
+  "1_1_1": {
+    "name": "황혼의 해안",
+    "nameEn": "The Twilight Strand",
+    "act": 1,
+    "level": 1,
+    "town": false
+  },
+  "1_1_2": {
+    "name": "해안 지대",
+    "nameEn": "The Coast",
+    "act": 1,
+    "level": 2,
+    "town": false
+  },
+  "1_1_2a": {
+    "name": "물결 섬",
+    "nameEn": "The Tidal Island",
+    "act": 1,
+    "level": 3,
+    "town": false
+  },
+  "1_1_3": {
+    "name": "갯벌",
+    "nameEn": "The Mud Flats",
+    "act": 1,
+    "level": 4,
+    "town": false
+  },
+  "1_1_3a": {
+    "name": "악취 나는 웅덩이",
+    "nameEn": "The Fetid Pool",
+    "act": 1,
+    "level": 5,
+    "town": false
+  },
+  "1_1_4_1": {
+    "name": "물에 잠긴 길",
+    "nameEn": "The Submerged Passage",
+    "act": 1,
+    "level": 5,
+    "town": false
+  },
+  "1_1_4_0": {
+    "name": "물에 잠긴 심연",
+    "nameEn": "The Flooded Depths",
+    "act": 1,
+    "level": 6,
+    "town": false
+  },
+  "1_1_5": {
+    "name": "바위 턱",
+    "nameEn": "The Ledge",
+    "act": 1,
+    "level": 6,
+    "town": false
+  },
+  "1_1_6": {
+    "name": "고개",
+    "nameEn": "The Climb",
+    "act": 1,
+    "level": 7,
+    "town": false
+  },
+  "1_1_7_1": {
+    "name": "수용소 하층",
+    "nameEn": "The Lower Prison",
+    "act": 1,
+    "level": 8,
+    "town": false
+  },
+  "1_1_7_2": {
+    "name": "수용소 상층",
+    "nameEn": "The Upper Prison",
+    "act": 1,
+    "level": 9,
+    "town": false
+  },
+  "1_1_8": {
+    "name": "죄수의 문",
+    "nameEn": "Prisoner's Gate",
+    "act": 1,
+    "level": 10,
+    "town": false
+  },
+  "1_1_9": {
+    "name": "배들의 묘지",
+    "nameEn": "The Ship Graveyard",
+    "act": 1,
+    "level": 11,
+    "town": false
+  },
+  "1_1_11_1": {
+    "name": "진노의 암굴",
+    "nameEn": "The Cavern of Wrath",
+    "act": 1,
+    "level": 12,
+    "town": false
+  },
+  "1_1_9a": {
+    "name": "배들의 묘지 동굴",
+    "nameEn": "The Ship Graveyard Cave",
+    "act": 1,
+    "level": 12,
+    "town": false
+  },
+  "1_1_11_2": {
+    "name": "분노의 암굴",
+    "nameEn": "The Cavern of Anger",
+    "act": 1,
+    "level": 13,
+    "town": false
+  },
+  "1_1_town": {
+    "name": "라이온아이 초소",
+    "nameEn": "Lioneye's Watch",
+    "act": 1,
+    "level": 13,
+    "town": true
+  },
+  "1_2_1": {
+    "name": "남쪽 숲",
+    "nameEn": "The Southern Forest",
+    "act": 2,
+    "level": 13,
+    "town": false
+  },
+  "1_2_2": {
+    "name": "버려진 경작지",
+    "nameEn": "The Old Fields",
+    "act": 2,
+    "level": 14,
+    "town": false
+  },
+  "1_2_2a": {
+    "name": "굴",
+    "nameEn": "The Den",
+    "act": 2,
+    "level": 15,
+    "town": false
+  },
+  "1_2_3": {
+    "name": "갈림길",
+    "nameEn": "The Crossroads",
+    "act": 2,
+    "level": 15,
+    "town": false
+  },
+  "1_2_6_1": {
+    "name": "죄악의 방 1층",
+    "nameEn": "The Chamber of Sins Level 1",
+    "act": 2,
+    "level": 15,
+    "town": false
+  },
+  "1_2_7": {
+    "name": "강변길",
+    "nameEn": "The Riverways",
+    "act": 2,
+    "level": 15,
+    "town": false
+  },
+  "1_2_15": {
+    "name": "몰락한 성소 유적",
+    "nameEn": "The Fellshrine Ruins",
+    "act": 2,
+    "level": 16,
+    "town": false
+  },
+  "1_2_4": {
+    "name": "부서진 다리",
+    "nameEn": "The Broken Bridge",
+    "act": 2,
+    "level": 16,
+    "town": false
+  },
+  "1_2_6_2": {
+    "name": "죄악의 방 2층",
+    "nameEn": "The Chamber of Sins Level 2",
+    "act": 2,
+    "level": 16,
+    "town": false
+  },
+  "1_2_5_1": {
+    "name": "지하실 1층",
+    "nameEn": "The Crypt Level 1",
+    "act": 2,
+    "level": 17,
+    "town": false
+  },
+  "1_2_9": {
+    "name": "서쪽 숲",
+    "nameEn": "The Western Forest",
+    "act": 2,
+    "level": 17,
+    "town": false
+  },
+  "1_2_10": {
+    "name": "거미의 방",
+    "nameEn": "The Weaver's Chambers",
+    "act": 2,
+    "level": 18,
+    "town": false
+  },
+  "1_2_5_2": {
+    "name": "지하실 2층",
+    "nameEn": "The Crypt Level 2",
+    "act": 2,
+    "level": 18,
+    "town": false
+  },
+  "1_2_12": {
+    "name": "습지대",
+    "nameEn": "The Wetlands",
+    "act": 2,
+    "level": 19,
+    "town": false
+  },
+  "1_2_11": {
+    "name": "바알 유적",
+    "nameEn": "The Vaal Ruins",
+    "act": 2,
+    "level": 20,
+    "town": false
+  },
+  "1_2_13": {
+    "name": "공포의 잡목림",
+    "nameEn": "The Dread Thicket",
+    "act": 2,
+    "level": 21,
+    "town": false
+  },
+  "1_2_8": {
+    "name": "북쪽 숲",
+    "nameEn": "The Northern Forest",
+    "act": 2,
+    "level": 21,
+    "town": false
+  },
+  "1_2_14_2": {
+    "name": "암굴",
+    "nameEn": "The Caverns",
+    "act": 2,
+    "level": 22,
+    "town": false
+  },
+  "1_2_14_3": {
+    "name": "고대 피라미드",
+    "nameEn": "The Ancient Pyramid",
+    "act": 2,
+    "level": 23,
+    "town": false
+  },
+  "1_2_town": {
+    "name": "숲 야영지",
+    "nameEn": "The Forest Encampment",
+    "act": 2,
+    "level": 23,
+    "town": true
+  },
+  "1_3_1": {
+    "name": "사안 시내",
+    "nameEn": "The City of Sarn",
+    "act": 3,
+    "level": 23,
+    "town": false
+  },
+  "1_3_2": {
+    "name": "빈민가",
+    "nameEn": "The Slums",
+    "act": 3,
+    "level": 24,
+    "town": false
+  },
+  "1_3_3_1": {
+    "name": "화장터",
+    "nameEn": "The Crematorium",
+    "act": 3,
+    "level": 25,
+    "town": false
+  },
+  "1_3_10_1": {
+    "name": "하수도",
+    "nameEn": "The Sewers",
+    "act": 3,
+    "level": 26,
+    "town": false
+  },
+  "1_3_5": {
+    "name": "장터",
+    "nameEn": "The Marketplace",
+    "act": 3,
+    "level": 26,
+    "town": false
+  },
+  "1_3_6": {
+    "name": "지하 묘지",
+    "nameEn": "The Catacombs",
+    "act": 3,
+    "level": 27,
+    "town": false
+  },
+  "1_3_7": {
+    "name": "전쟁터",
+    "nameEn": "The Battlefront",
+    "act": 3,
+    "level": 27,
+    "town": false
+  },
+  "1_3_8_1": {
+    "name": "솔라리스 사원 1층",
+    "nameEn": "The Solaris Temple Level 1",
+    "act": 3,
+    "level": 27,
+    "town": false
+  },
+  "1_3_8_2": {
+    "name": "솔라리스 사원 2층",
+    "nameEn": "The Solaris Temple Level 2",
+    "act": 3,
+    "level": 28,
+    "town": false
+  },
+  "1_3_13": {
+    "name": "칠흑의 군단 주둔지",
+    "nameEn": "The Ebony Barracks",
+    "act": 3,
+    "level": 29,
+    "town": false
+  },
+  "1_3_14_1": {
+    "name": "루나리스 사원 1층",
+    "nameEn": "The Lunaris Temple Level 1",
+    "act": 3,
+    "level": 29,
+    "town": false
+  },
+  "1_3_9": {
+    "name": "항구",
+    "nameEn": "The Docks",
+    "act": 3,
+    "level": 29,
+    "town": false
+  },
+  "1_3_14_2": {
+    "name": "루나리스 사원 2층",
+    "nameEn": "The Lunaris Temple Level 2",
+    "act": 3,
+    "level": 30,
+    "town": false
+  },
+  "1_3_15": {
+    "name": "황실 정원",
+    "nameEn": "The Imperial Gardens",
+    "act": 3,
+    "level": 30,
+    "town": false
+  },
+  "1_3_17_1": {
+    "name": "도서관",
+    "nameEn": "The Library",
+    "act": 3,
+    "level": 30,
+    "town": false
+  },
+  "1_3_17_2": {
+    "name": "문서 보관소",
+    "nameEn": "The Archives",
+    "act": 3,
+    "level": 31,
+    "town": false
+  },
+  "1_3_18_1": {
+    "name": "신의 셉터",
+    "nameEn": "The Sceptre of God",
+    "act": 3,
+    "level": 32,
+    "town": false
+  },
+  "1_3_18_2": {
+    "name": "신의 셉터 상층",
+    "nameEn": "The Upper Sceptre of God",
+    "act": 3,
+    "level": 33,
+    "town": false
+  },
+  "1_3_town": {
+    "name": "사안 야영지",
+    "nameEn": "The Sarn Encampment",
+    "act": 3,
+    "level": 33,
+    "town": true
+  },
+  "Labyrinth_Airlock": {
+    "name": "지망자의 광장",
+    "nameEn": "Aspirants' Plaza",
+    "act": 3,
+    "level": 33,
+    "town": false
+  },
+  "1_4_1": {
+    "name": "수로",
+    "nameEn": "The Aqueduct",
+    "act": 4,
+    "level": 33,
+    "town": false
+  },
+  "1_4_2": {
+    "name": "말라붙은 호수",
+    "nameEn": "The Dried Lake",
+    "act": 4,
+    "level": 34,
+    "town": false
+  },
+  "1_4_3_1": {
+    "name": "광산 1층",
+    "nameEn": "The Mines Level 1",
+    "act": 4,
+    "level": 34,
+    "town": false
+  },
+  "1_4_3_2": {
+    "name": "광산 2층",
+    "nameEn": "The Mines Level 2",
+    "act": 4,
+    "level": 35,
+    "town": false
+  },
+  "1_4_3_3": {
+    "name": "수정 광맥",
+    "nameEn": "The Crystal Veins",
+    "act": 4,
+    "level": 36,
+    "town": false
+  },
+  "1_4_4_1": {
+    "name": "카옴의 꿈",
+    "nameEn": "Kaom's Dream",
+    "act": 4,
+    "level": 37,
+    "town": false
+  },
+  "1_4_5_1": {
+    "name": "다레소의 꿈",
+    "nameEn": "Daresso's Dream",
+    "act": 4,
+    "level": 37,
+    "town": false
+  },
+  "1_4_4_3": {
+    "name": "카옴의 요새",
+    "nameEn": "Kaom's Stronghold",
+    "act": 4,
+    "level": 38,
+    "town": false
+  },
+  "1_4_5_2": {
+    "name": "대 투기장",
+    "nameEn": "The Grand Arena",
+    "act": 4,
+    "level": 38,
+    "town": false
+  },
+  "1_4_6_1": {
+    "name": "짐승의 소굴 1층",
+    "nameEn": "The Belly of the Beast Level 1",
+    "act": 4,
+    "level": 38,
+    "town": false
+  },
+  "1_4_6_2": {
+    "name": "짐승의 소굴 2층",
+    "nameEn": "The Belly of the Beast Level 2",
+    "act": 4,
+    "level": 39,
+    "town": false
+  },
+  "1_4_6_3": {
+    "name": "수확소",
+    "nameEn": "The Harvest",
+    "act": 4,
+    "level": 40,
+    "town": false
+  },
+  "1_4_7": {
+    "name": "오르막길",
+    "nameEn": "The Ascent",
+    "act": 4,
+    "level": 40,
+    "town": false
+  },
+  "1_4_town": {
+    "name": "하이게이트",
+    "nameEn": "Highgate",
+    "act": 4,
+    "level": 40,
+    "town": true
+  },
+  "1_5_1": {
+    "name": "노예 감호소",
+    "nameEn": "The Slave Pens",
+    "act": 5,
+    "level": 41,
+    "town": false
+  },
+  "1_5_2": {
+    "name": "관리 구역",
+    "nameEn": "The Control Blocks",
+    "act": 5,
+    "level": 41,
+    "town": false
+  },
+  "1_5_3": {
+    "name": "오리아스 광장",
+    "nameEn": "Oriath Square",
+    "act": 5,
+    "level": 42,
+    "town": false
+  },
+  "1_5_4": {
+    "name": "템플러의 법정",
+    "nameEn": "The Templar Courts",
+    "act": 5,
+    "level": 42,
+    "town": false
+  },
+  "1_5_5": {
+    "name": "결백의 방",
+    "nameEn": "The Chamber of Innocence",
+    "act": 5,
+    "level": 43,
+    "town": false
+  },
+  "1_5_3b": {
+    "name": "멸망한 광장",
+    "nameEn": "The Ruined Square",
+    "act": 5,
+    "level": 44,
+    "town": false
+  },
+  "1_5_4b": {
+    "name": "타오르는 법정",
+    "nameEn": "The Torched Courts",
+    "act": 5,
+    "level": 44,
+    "town": false
+  },
+  "1_5_6": {
+    "name": "납골당",
+    "nameEn": "The Ossuary",
+    "act": 5,
+    "level": 44,
+    "town": false
+  },
+  "1_5_7": {
+    "name": "성유물 보관실",
+    "nameEn": "The Reliquary",
+    "act": 5,
+    "level": 44,
+    "town": false
+  },
+  "1_5_8": {
+    "name": "대성당 옥상",
+    "nameEn": "The Cathedral Rooftop",
+    "act": 5,
+    "level": 45,
+    "town": false
+  },
+  "1_5_town": {
+    "name": "감시탑",
+    "nameEn": "Overseer's Tower",
+    "act": 5,
+    "level": 45,
+    "town": true
+  },
+  "2_6_1": {
+    "name": "황혼의 해안",
+    "nameEn": "The Twilight Strand",
+    "act": 6,
+    "level": 45,
+    "town": false
+  },
+  "2_6_2": {
+    "name": "해안 지대",
+    "nameEn": "The Coast",
+    "act": 6,
+    "level": 45,
+    "town": false
+  },
+  "2_6_3": {
+    "name": "물결 섬",
+    "nameEn": "The Tidal Island",
+    "act": 6,
+    "level": 45,
+    "town": false
+  },
+  "2_6_4": {
+    "name": "갯벌",
+    "nameEn": "The Mud Flats",
+    "act": 6,
+    "level": 46,
+    "town": false
+  },
+  "2_6_5": {
+    "name": "카루이 요새",
+    "nameEn": "The Karui Fortress",
+    "act": 6,
+    "level": 46,
+    "town": false
+  },
+  "2_6_6": {
+    "name": "산등성이",
+    "nameEn": "The Ridge",
+    "act": 6,
+    "level": 46,
+    "town": false
+  },
+  "2_6_7_1": {
+    "name": "수용소 하층",
+    "nameEn": "The Lower Prison",
+    "act": 6,
+    "level": 47,
+    "town": false
+  },
+  "2_6_7_2": {
+    "name": "샤브론의 탑",
+    "nameEn": "Shavronne's Tower",
+    "act": 6,
+    "level": 47,
+    "town": false
+  },
+  "2_6_8": {
+    "name": "죄수의 문",
+    "nameEn": "Prisoner's Gate",
+    "act": 6,
+    "level": 47,
+    "town": false
+  },
+  "2_6_10": {
+    "name": "강변길",
+    "nameEn": "The Riverways",
+    "act": 6,
+    "level": 48,
+    "town": false
+  },
+  "2_6_11": {
+    "name": "습지대",
+    "nameEn": "The Wetlands",
+    "act": 6,
+    "level": 48,
+    "town": false
+  },
+  "2_6_9": {
+    "name": "서쪽 숲",
+    "nameEn": "The Western Forest",
+    "act": 6,
+    "level": 48,
+    "town": false
+  },
+  "2_6_12": {
+    "name": "남쪽 숲",
+    "nameEn": "The Southern Forest",
+    "act": 6,
+    "level": 49,
+    "town": false
+  },
+  "2_6_13": {
+    "name": "분노의 암굴",
+    "nameEn": "The Cavern of Anger",
+    "act": 6,
+    "level": 49,
+    "town": false
+  },
+  "2_6_14": {
+    "name": "등대",
+    "nameEn": "The Beacon",
+    "act": 6,
+    "level": 49,
+    "town": false
+  },
+  "2_6_15": {
+    "name": "염수왕의 암초",
+    "nameEn": "The Brine King's Reef",
+    "act": 6,
+    "level": 50,
+    "town": false
+  },
+  "2_6_town": {
+    "name": "라이온아이 초소",
+    "nameEn": "Lioneye's Watch",
+    "act": 6,
+    "level": 50,
+    "town": true
+  },
+  "2_7_1": {
+    "name": "부서진 다리",
+    "nameEn": "The Broken Bridge",
+    "act": 7,
+    "level": 50,
+    "town": false
+  },
+  "2_7_2": {
+    "name": "갈림길",
+    "nameEn": "The Crossroads",
+    "act": 7,
+    "level": 51,
+    "town": false
+  },
+  "2_7_3": {
+    "name": "몰락한 성소 유적",
+    "nameEn": "The Fellshrine Ruins",
+    "act": 7,
+    "level": 51,
+    "town": false
+  },
+  "2_7_4": {
+    "name": "지하실",
+    "nameEn": "The Crypt",
+    "act": 7,
+    "level": 51,
+    "town": false
+  },
+  "2_7_5_1": {
+    "name": "죄악의 방 1층",
+    "nameEn": "The Chamber of Sins Level 1",
+    "act": 7,
+    "level": 52,
+    "town": false
+  },
+  "2_7_5_2": {
+    "name": "죄악의 방 2층",
+    "nameEn": "The Chamber of Sins Level 2",
+    "act": 7,
+    "level": 52,
+    "town": false
+  },
+  "2_7_5_map": {
+    "name": "말리가로의 지성소",
+    "nameEn": "Maligaro's Sanctum",
+    "act": 7,
+    "level": 52,
+    "town": false
+  },
+  "2_7_6": {
+    "name": "굴",
+    "nameEn": "The Den",
+    "act": 7,
+    "level": 53,
+    "town": false
+  },
+  "2_7_7": {
+    "name": "잿빛 들판",
+    "nameEn": "The Ashen Fields",
+    "act": 7,
+    "level": 53,
+    "town": false
+  },
+  "2_7_8": {
+    "name": "북쪽 숲",
+    "nameEn": "The Northern Forest",
+    "act": 7,
+    "level": 53,
+    "town": false
+  },
+  "2_7_9": {
+    "name": "공포의 잡목림",
+    "nameEn": "The Dread Thicket",
+    "act": 7,
+    "level": 53,
+    "town": false
+  },
+  "2_7_10": {
+    "name": "둑길",
+    "nameEn": "The Causeway",
+    "act": 7,
+    "level": 54,
+    "town": false
+  },
+  "2_7_11": {
+    "name": "바알 도시",
+    "nameEn": "The Vaal City",
+    "act": 7,
+    "level": 54,
+    "town": false
+  },
+  "2_7_12_1": {
+    "name": "부패의 사원 1층",
+    "nameEn": "The Temple of Decay Level 1",
+    "act": 7,
+    "level": 54,
+    "town": false
+  },
+  "2_7_12_2": {
+    "name": "부패의 사원 2층",
+    "nameEn": "The Temple of Decay Level 2",
+    "act": 7,
+    "level": 55,
+    "town": false
+  },
+  "2_7_town": {
+    "name": "다리 야영지",
+    "nameEn": "The Bridge Encampment",
+    "act": 7,
+    "level": 55,
+    "town": true
+  },
+  "2_8_1": {
+    "name": "사안 성벽",
+    "nameEn": "The Sarn Ramparts",
+    "act": 8,
+    "level": 55,
+    "town": false
+  },
+  "2_8_2_1": {
+    "name": "독성 도관",
+    "nameEn": "The Toxic Conduits",
+    "act": 8,
+    "level": 56,
+    "town": false
+  },
+  "2_8_2_2": {
+    "name": "도이드리의 정화조",
+    "nameEn": "Doedre's Cesspool",
+    "act": 8,
+    "level": 56,
+    "town": false
+  },
+  "2_8_3": {
+    "name": "대 산책로",
+    "nameEn": "The Grand Promenade",
+    "act": 8,
+    "level": 56,
+    "town": false
+  },
+  "2_8_5": {
+    "name": "목욕탕",
+    "nameEn": "The Bath House",
+    "act": 8,
+    "level": 57,
+    "town": false
+  },
+  "2_8_8": {
+    "name": "부두",
+    "nameEn": "The Quay",
+    "act": 8,
+    "level": 57,
+    "town": false
+  },
+  "2_8_9": {
+    "name": "곡물의 문",
+    "nameEn": "The Grain Gate",
+    "act": 8,
+    "level": 57,
+    "town": false
+  },
+  "2_8_10": {
+    "name": "황실 정원",
+    "nameEn": "The Imperial Fields",
+    "act": 8,
+    "level": 58,
+    "town": false
+  },
+  "2_8_11": {
+    "name": "솔라리스 중앙 광장",
+    "nameEn": "The Solaris Concourse",
+    "act": 8,
+    "level": 58,
+    "town": false
+  },
+  "2_8_4": {
+    "name": "고층 정원",
+    "nameEn": "The High Gardens",
+    "act": 8,
+    "level": 58,
+    "town": false
+  },
+  "2_8_6": {
+    "name": "루나리스 중앙 광장",
+    "nameEn": "The Lunaris Concourse",
+    "act": 8,
+    "level": 58,
+    "town": false
+  },
+  "2_8_12_1": {
+    "name": "솔라리스 사원 1층",
+    "nameEn": "The Solaris Temple Level 1",
+    "act": 8,
+    "level": 59,
+    "town": false
+  },
+  "2_8_12_2": {
+    "name": "솔라리스 사원 2층",
+    "nameEn": "The Solaris Temple Level 2",
+    "act": 8,
+    "level": 59,
+    "town": false
+  },
+  "2_8_7_1_": {
+    "name": "루나리스 사원 1층",
+    "nameEn": "The Lunaris Temple Level 1",
+    "act": 8,
+    "level": 59,
+    "town": false
+  },
+  "2_8_7_2": {
+    "name": "루나리스 사원 2층",
+    "nameEn": "The Lunaris Temple Level 2",
+    "act": 8,
+    "level": 59,
+    "town": false
+  },
+  "2_8_13": {
+    "name": "항구 다리",
+    "nameEn": "The Harbour Bridge",
+    "act": 8,
+    "level": 60,
+    "town": false
+  },
+  "2_8_town": {
+    "name": "사안 야영지",
+    "nameEn": "The Sarn Encampment",
+    "act": 8,
+    "level": 60,
+    "town": true
+  },
+  "2_9_1": {
+    "name": "피의 수로",
+    "nameEn": "The Blood Aqueduct",
+    "act": 9,
+    "level": 61,
+    "town": false
+  },
+  "2_9_2": {
+    "name": "비탈",
+    "nameEn": "The Descent",
+    "act": 9,
+    "level": 61,
+    "town": false
+  },
+  "2_9_3": {
+    "name": "바스티리 사막",
+    "nameEn": "The Vastiri Desert",
+    "act": 9,
+    "level": 61,
+    "town": false
+  },
+  "2_9_4": {
+    "name": "오아시스",
+    "nameEn": "The Oasis",
+    "act": 9,
+    "level": 61,
+    "town": false
+  },
+  "2_9_5": {
+    "name": "구릉",
+    "nameEn": "The Foothills",
+    "act": 9,
+    "level": 62,
+    "town": false
+  },
+  "2_9_6": {
+    "name": "끓어오르는 호수",
+    "nameEn": "The Boiling Lake",
+    "act": 9,
+    "level": 62,
+    "town": false
+  },
+  "2_9_7": {
+    "name": "터널",
+    "nameEn": "The Tunnel",
+    "act": 9,
+    "level": 62,
+    "town": false
+  },
+  "2_9_10_1": {
+    "name": "짐승의 소굴",
+    "nameEn": "The Belly of the Beast",
+    "act": 9,
+    "level": 63,
+    "town": false
+  },
+  "2_9_8": {
+    "name": "채석장",
+    "nameEn": "The Quarry",
+    "act": 9,
+    "level": 63,
+    "town": false
+  },
+  "2_9_9": {
+    "name": "제련소",
+    "nameEn": "The Refinery",
+    "act": 9,
+    "level": 63,
+    "town": false
+  },
+  "2_9_10_2": {
+    "name": "썩어가는 중심부",
+    "nameEn": "The Rotting Core",
+    "act": 9,
+    "level": 64,
+    "town": false
+  },
+  "2_9_town": {
+    "name": "하이게이트",
+    "nameEn": "Highgate",
+    "act": 9,
+    "level": 67,
+    "town": true
+  },
+  "2_10_1": {
+    "name": "대성당 옥상",
+    "nameEn": "The Cathedral Rooftop",
+    "act": 10,
+    "level": 64,
+    "town": false
+  },
+  "2_10_2": {
+    "name": "파괴된 광장",
+    "nameEn": "The Ravaged Square",
+    "act": 10,
+    "level": 64,
+    "town": false
+  },
+  "2_10_3": {
+    "name": "타오르는 법정",
+    "nameEn": "The Torched Courts",
+    "act": 10,
+    "level": 65,
+    "town": false
+  },
+  "2_10_4": {
+    "name": "무너진 방",
+    "nameEn": "The Desecrated Chambers",
+    "act": 10,
+    "level": 65,
+    "town": false
+  },
+  "2_10_5": {
+    "name": "운하",
+    "nameEn": "The Canals",
+    "act": 10,
+    "level": 66,
+    "town": false
+  },
+  "2_10_7": {
+    "name": "관리 구역",
+    "nameEn": "The Control Blocks",
+    "act": 10,
+    "level": 66,
+    "town": false
+  },
+  "2_10_6": {
+    "name": "먹이통",
+    "nameEn": "The Feeding Trough",
+    "act": 10,
+    "level": 67,
+    "town": false
+  },
+  "2_10_8": {
+    "name": "성유물 보관실",
+    "nameEn": "The Reliquary",
+    "act": 10,
+    "level": 67,
+    "town": false
+  },
+  "2_10_9": {
+    "name": "납골당",
+    "nameEn": "The Ossuary",
+    "act": 10,
+    "level": 67,
+    "town": false
+  },
+  "2_10_town": {
+    "name": "오리아스 부두",
+    "nameEn": "Oriath Docks",
+    "act": 10,
+    "level": 69,
+    "town": true
+  }
+}
