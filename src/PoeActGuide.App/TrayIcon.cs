@@ -38,6 +38,8 @@ internal interface ITrayCommands
 
     void OpenDataFolder();
 
+    void ToggleHelp();
+
     void ExitApp();
 }
 
@@ -77,6 +79,8 @@ internal sealed class TrayIcon : IDisposable
         menu.Items.Add(new ToolStripMenuItem("로그 파일(Client.txt) 지정...", null, (_, _) => commands.ChooseLogFile()));
         menu.Items.Add(new ToolStripMenuItem("설정 파일 열기", null, (_, _) => commands.OpenSettingsFile()));
         menu.Items.Add(new ToolStripMenuItem("가이드 데이터 폴더 열기", null, (_, _) => commands.OpenDataFolder()));
+        menu.Items.Add(new ToolStripSeparator());
+        menu.Items.Add(new ToolStripMenuItem("도움말", null, (_, _) => commands.ToggleHelp()));
         menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add(new ToolStripMenuItem("종료", null, (_, _) => commands.ExitApp()));
         menu.Opening += (_, _) =>

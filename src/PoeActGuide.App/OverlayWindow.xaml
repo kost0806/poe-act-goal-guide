@@ -25,7 +25,7 @@
           BorderBrush="{Binding BorderBrush}"
           BorderThickness="1"
           Padding="10,8,10,10">
-    <StackPanel>
+    <StackPanel Grid.IsSharedSizeScope="True">
 
       <!-- Header: act, manual badge, current area -->
       <DockPanel LastChildFill="False">
@@ -63,7 +63,10 @@
                  Foreground="#FFFFB15C"
                  Visibility="{Binding HasStatus, Converter={StaticResource BoolToVisibility}}" />
 
-      <ItemsControl Margin="0,6,0,0" ItemsSource="{Binding Steps}" Focusable="False">
+      <ItemsControl Margin="0,6,0,0"
+                    ItemsSource="{Binding Steps}"
+                    Focusable="False"
+                    Visibility="{Binding ShowSteps, Converter={StaticResource BoolToVisibility}}">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
             <Border Background="{Binding RowBrush}" CornerRadius="3" Padding="3,2" Margin="0,1,0,1">
@@ -101,6 +104,54 @@
           </DataTemplate>
         </ItemsControl.ItemTemplate>
       </ItemsControl>
+
+      <!-- Help screen: replaces the step list while open -->
+      <StackPanel Margin="0,6,0,0" Visibility="{Binding IsHelpVisible, Converter={StaticResource BoolToVisibility}}">
+        <TextBlock Text="{Binding HelpTitle}"
+                   FontWeight="Bold"
+                   Foreground="#FFFFF18A" />
+        <ItemsControl ItemsSource="{Binding HelpSections}" Focusable="False">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Margin="0,6,0,0">
+                <TextBlock Text="{Binding Title}"
+                           FontWeight="SemiBold"
+                           Foreground="#FFE6C27A"
+                           Margin="0,0,0,2" />
+                <ItemsControl ItemsSource="{Binding Lines}" Focusable="False">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                      <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto" SharedSizeGroup="HelpLabel" />
+                          <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0"
+                                Margin="0,1,6,0"
+                                Padding="3,0"
+                                VerticalAlignment="Top"
+                                CornerRadius="2"
+                                BorderThickness="1"
+                                BorderBrush="{Binding LabelBrush}"
+                                Visibility="{Binding HasLabel, Converter={StaticResource BoolToVisibility}}">
+                          <TextBlock Text="{Binding Label}"
+                                     Foreground="{Binding LabelBrush}"
+                                     FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}" />
+                        </Border>
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Text}"
+                                   TextWrapping="Wrap"
+                                   Foreground="#FFE8E4DA"
+                                   FontSize="{Binding DataContext.SmallFontSize, RelativeSource={RelativeSource AncestorType=Window}}" />
+                      </Grid>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </StackPanel>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
 
       <TextBlock Margin="0,8,0,0"
                  Text="{Binding MoveModeHint}"

@@ -51,7 +51,7 @@ public sealed class SettingsTests : IDisposable
     {
         var keys = new HotkeySettings();
 
-        foreach (var text in new[] { keys.ToggleVisible, keys.PreviousAct, keys.NextAct, keys.NextStep, keys.PreviousStep, keys.CycleViewMode, keys.ToggleMoveMode })
+        foreach (var text in new[] { keys.ToggleVisible, keys.PreviousAct, keys.NextAct, keys.NextStep, keys.PreviousStep, keys.CycleViewMode, keys.ToggleMoveMode, keys.ToggleHelp })
         {
             Assert.True(HotkeyGesture.TryParse(text, out _), text);
         }

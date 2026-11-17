@@ -93,6 +93,13 @@ public partial class App : Application, ITrayCommands
 
         ConnectLog();
         Refresh();
+
+        if (_settings.ShowHelpOnStart)
+        {
+            _viewModel.IsHelpVisible = true;
+            _settings.ShowHelpOnStart = false;
+            _settingsStore.TrySave(_settings);
+        }
     }
 
     protected override void OnExit(ExitEventArgs e)
@@ -203,6 +210,18 @@ public partial class App : Application, ITrayCommands
 
     public void OpenDataFolder() => OpenWithShell(_dataDirectory);
 
+    public void ToggleHelp()
+    {
+        if (_window is not null && !_window.IsVisible)
+        {
+            _window.Show();
+            _viewModel.IsHelpVisible = true;
+            return;
+        }
+
+        _viewModel.IsHelpVisible = !_viewModel.IsHelpVisible;
+    }
+
     public void ExitApp() => Shutdown();
 
     private static void OpenWithShell(string path)
@@ -234,6 +253,7 @@ public partial class App : Application, ITrayCommands
                 _hotkeys.Register(keys.PreviousStep, PreviousStep),
                 _hotkeys.Register(keys.CycleViewMode, CycleViewMode),
                 _hotkeys.Register(keys.ToggleMoveMode, ToggleMoveMode),
+                _hotkeys.Register(keys.ToggleHelp, ToggleHelp),
             }
             .Where(p => p is not null)
             .ToList();
