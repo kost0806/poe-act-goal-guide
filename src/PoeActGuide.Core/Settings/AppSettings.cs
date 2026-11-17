@@ -28,6 +28,9 @@ public sealed class AppSettings
     [JsonConverter(typeof(JsonStringEnumConverter<ViewMode>))]
     public ViewMode ViewMode { get; set; } = ViewMode.Normal;
 
+    /// <summary>Open the help screen at the next start; turned off once it has been shown.</summary>
+    public bool ShowHelpOnStart { get; set; } = true;
+
     /// <summary>Global hotkeys.</summary>
     public HotkeySettings Hotkeys { get; set; } = new();
 
@@ -76,4 +79,7 @@ public sealed class HotkeySettings
 
     /// <summary>Enter or leave move mode (drag the overlay with the mouse).</summary>
     public string ToggleMoveMode { get; set; } = "Ctrl+Shift+M";
+
+    /// <summary>Show or hide the help screen.</summary>
+    public string ToggleHelp { get; set; } = "Ctrl+Shift+H";
 }

@@ -224,7 +224,24 @@ public class ProgressTrackerTests
 
         Assert.Equal(8, tracker.BuildView(ViewMode.Full).Steps.Count);
         Assert.Equal(new[] { 3, 4, 5, 6, 7, 8 }, tracker.BuildView(ViewMode.Normal).Steps.Select(s => s.Number));
-        Assert.Equal(new[] { 4, 5, 6 }, tracker.BuildView(ViewMode.Compact).Steps.Select(s => s.Number));
+        Assert.Equal(new[] { 3, 4, 5 }, tracker.BuildView(ViewMode.Compact).Steps.Select(s => s.Number));
+    }
+
+    [Fact]
+    public void Compact_view_clips_at_the_ends_of_the_route()
+    {
+        var tracker = new ProgressTracker(TestData.Small());
+        Assert.Equal(new[] { 1 }, tracker.BuildView(ViewMode.Compact).Steps.Select(s => s.Number)); // not started
+
+        tracker.OnAreaEntered("1_1_1");
+        Assert.Equal(new[] { 1, 2 }, tracker.BuildView(ViewMode.Compact).Steps.Select(s => s.Number)); // first step
+
+        for (var i = 0; i < 10; i++)
+        {
+            tracker.NextStep();
+        }
+
+        Assert.Equal(new[] { 7, 8 }, tracker.BuildView(ViewMode.Compact).Steps.Select(s => s.Number)); // last step
     }
 
     [Fact]

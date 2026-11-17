@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 using PoeActGuide.Core.Guide;
+using PoeActGuide.Core.Help;
 using PoeActGuide.Core.Progress;
 using PoeActGuide.Core.Settings;
 using Brushes = System.Windows.Media.Brushes;
@@ -15,6 +16,7 @@ internal sealed class OverlayViewModel : INotifyPropertyChanged
     private static readonly Brush CurrentTextBrush = Frozen(Color.FromRgb(0xFF, 0xF1, 0x8A));
     private static readonly Brush CurrentRowBrush = Frozen(Color.FromArgb(0x40, 0xFF, 0xD8, 0x6B));
     private static readonly Brush HereBrush = Frozen(Color.FromRgb(0xF5, 0xE3, 0xB0));
+    private static readonly Brush KeyBrush = Frozen(Color.FromRgb(0xF2, 0xE6, 0xC9));
     private static readonly Brush DoneBrush = Frozen(Color.FromRgb(0x6E, 0x6A, 0x62));
     private static readonly Brush TextBrush = Frozen(Color.FromRgb(0xE8, 0xE4, 0xDA));
     private static readonly Brush NoteBrush = Frozen(Color.FromRgb(0x9C, 0x97, 0x8C));
@@ -30,6 +32,8 @@ internal sealed class OverlayViewModel : INotifyPropertyChanged
     private double _fontSize = 13;
     private Brush _background = Brushes.Black;
     private bool _isMoveMode;
+    private bool _isHelpVisible;
+    private IReadOnlyList<HelpSectionItem> _helpSections = Array.Empty<HelpSectionItem>();
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -93,6 +97,25 @@ internal sealed class OverlayViewModel : INotifyPropertyChanged
 
     public string MoveModeHint { get; private set; } = string.Empty;
 
+    /// <summary>True while the help screen replaces the step list.</summary>
+    public bool IsHelpVisible
+    {
+        get => _isHelpVisible;
+        set
+        {
+            if (Set(ref _isHelpVisible, value))
+            {
+                OnPropertyChanged(nameof(ShowSteps));
+            }
+        }
+    }
+
+    public bool ShowSteps => !_isHelpVisible;
+
+    public IReadOnlyList<HelpSectionItem> HelpSections { get => _helpSections; private set => Set(ref _helpSections, value); }
+
+    public string HelpTitle { get; private set; } = string.Empty;
+
     public void ApplySettings(AppSettings settings)
     {
         FontSize = settings.FontSize;
@@ -100,6 +123,21 @@ internal sealed class OverlayViewModel : INotifyPropertyChanged
         Background = Frozen(Color.FromArgb(alpha, 0x12, 0x12, 0x14));
         MoveModeHint = $"이동 모드 — 드래그해서 옮기세요 ({settings.Hotkeys.ToggleMoveMode} 로 종료)";
         OnPropertyChanged(nameof(MoveModeHint));
+
+        var closeKey = HotkeyGesture.TryParse(settings.Hotkeys.ToggleHelp, out var key) && key is not null
+            ? $"{key} 로 닫기"
+            : "트레이 메뉴에서 닫기";
+        HelpTitle = $"도움말 — {closeKey}";
+        OnPropertyChanged(nameof(HelpTitle));
+        HelpSections = HelpContent.Build(settings.Hotkeys)
+            .Select(s => new HelpSectionItem(
+                s.Title,
+                s.Lines.Select(l => new HelpLineItem(
+                    l.Key ?? (l.Tag is { } tag ? ProgressTracker.TagOf(tag) : string.Empty),
+                    l.Key is not null || l.Tag is not null,
+                    l.Tag is { } t ? KindBrush(t) : KeyBrush,
+                    l.Text)).ToList()))
+            .ToList();
     }
 
     public void Update(GuideView view, ViewMode mode)
@@ -171,3 +209,7 @@ internal sealed record StepItem(
     FontWeight Weight,
     Brush NoteBrush,
     Brush RowBrush);
+
+internal sealed record HelpSectionItem(string Title, IReadOnlyList<HelpLineItem> Lines);
+
+internal sealed record HelpLineItem(string Label, bool HasLabel, Brush LabelBrush, string Text);

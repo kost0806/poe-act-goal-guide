@@ -28,8 +28,8 @@ public sealed class ProgressTracker
     /// <summary>Steps shown in <see cref="ViewMode.Normal"/>: one done step, the current one, and the rest ahead.</summary>
     public const int NormalCount = 8;
 
-    /// <summary>Steps shown in <see cref="ViewMode.Compact"/>, starting at the current one.</summary>
-    public const int CompactCount = 3;
+    /// <summary>Steps shown on each side of the current one in <see cref="ViewMode.Compact"/>.</summary>
+    public const int CompactRadius = 1;
 
     /// <summary>The first area of a new character; entering it resets every act's position.</summary>
     public const string NewCharacterAreaId = "1_1_1";
@@ -145,7 +145,11 @@ public sealed class ProgressTracker
 
         IReadOnlyList<StepView> shown = mode switch
         {
-            ViewMode.Compact => views.Skip(Math.Max(position, 0)).Take(CompactCount).ToList(),
+            // Before the route starts (position -1) this leaves just the first step.
+            ViewMode.Compact => views
+                .Skip(Math.Max(position - CompactRadius, 0))
+                .Take(position + CompactRadius - Math.Max(position - CompactRadius, 0) + 1)
+                .ToList(),
             ViewMode.Normal => views.Skip(Math.Max(position - 1, 0)).Take(NormalCount).ToList(),
             _ => views,
         };

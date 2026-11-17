@@ -8,7 +8,7 @@ public enum ViewMode
     /// <summary>The previous step, the current one and the next several (with notes).</summary>
     Normal,
 
-    /// <summary>The current step and the next two.</summary>
+    /// <summary>At most one step before the current one, the current step, and at most one after.</summary>
     Compact,
 
     /// <summary>The whole act.</summary>
