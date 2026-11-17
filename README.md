@@ -1,5 +1,7 @@
 # PoE 액트 목표 가이드 오버레이
 
+[![CI](https://github.com/kost0806/poe-act-goal-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/kost0806/poe-act-goal-guide/actions/workflows/ci.yml) [![Release](https://github.com/kost0806/poe-act-goal-guide/actions/workflows/release.yml/badge.svg)](https://github.com/kost0806/poe-act-goal-guide/releases/latest)
+
 Path of Exile 1 캠페인(1~10장)을 **최단 루트 순서대로** 게임 화면 위에 띄워 주고, 지역을 옮길 때마다 지금 할 일을 자동으로 짚어 주는 Windows 오버레이.
 
 | | |
